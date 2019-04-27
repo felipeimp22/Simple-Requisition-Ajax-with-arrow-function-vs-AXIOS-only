@@ -1,0 +1,36 @@
+//Simple Req without AXIOS -----------------------------------------------------
+
+//rQ - requisition
+const rQ = () => new Promise((resolve,reject)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', "https://api.github.com/users/felipeimp22"); //my api from gitHub
+    xhr.send(null); //null parameter
+
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4 ){
+            if(xhr.status === 200){
+                resolve(JSON.parse(xhr.responseText));
+            }else{
+                reject("request error");  //if your req fails show this msg
+            }
+        }
+
+    }
+})
+
+rQ().then(response =>{
+    console.log("Request", response);
+}).catch(error =>{
+    console.log(error);
+});
+
+/* -----------------------------------------------------------------------------
+REQ with AXIOS
+*/
+
+axios.get("https://api.github.com/users/felipeimp22")
+.then(function(response){
+    console.log("Its works", response);
+}).catch(function(error){
+    console.log(error);
+})
