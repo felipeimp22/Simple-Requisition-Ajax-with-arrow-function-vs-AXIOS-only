@@ -34,3 +34,11 @@ axios.get("https://api.github.com/users/felipeimp22")
 }).catch(function(error){
     console.log(error);
 })
+
+
+
+/*WARNING: For you use axios, put it in yout html:
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> , 
+and after your script
+
+*/
